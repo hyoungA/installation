@@ -1,5 +1,5 @@
 #development server
-frw_jdbc.driverClassName=oracle.jdbc.OracleDriver
+frw_jdbc.driverClassName=${FRW_JDBC_DRIVERCLASSNAME}
 frw_jdbc.url=jdbc:oracle:thin:@70.121.244.13:1523:xe
 frw_jdbc.username=anyframe
 frw_jdbc.password=anyframe000

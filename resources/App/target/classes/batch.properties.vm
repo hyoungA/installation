@@ -3,7 +3,7 @@
 #############################################
 
 # absolute base directory where log file is written to
-batch.log.directory=${LOG_ROOT}/App
+batch.log.directory=${BATCH_LOG_DIRECTORY}
 
 # batch runtime context location
 batch.context.location=classpath:spring/context-*.xml
@@ -12,7 +12,7 @@ batch.context.location=classpath:spring/context-*.xml
 batch.database.persist=true
 
 # type of database
-batch.database.type=${DB_TYPE}
+batch.database.type=${BATCH_DATABASE_TYPE}
 
 #############################################
 # configurations for batch job
