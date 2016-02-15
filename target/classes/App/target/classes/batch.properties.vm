@@ -1,0 +1,116 @@
+#############################################
+# configurations for batch runtime
+#############################################
+
+# absolute base directory where log file is written to
+batch.log.directory=${LOG_ROOT}/App
+
+# batch runtime context location
+batch.context.location=classpath:spring/context-*.xml
+
+# enable/disable to persist execution history to database 
+batch.database.persist=true
+
+# type of database
+batch.database.type=${DB_TYPE}
+
+#############################################
+# configurations for batch job
+#############################################
+
+# default restartable of job. <job restartable="true/false">
+batch.job.restartable=false
+
+# suffix of job configuration file
+batch.job.config.suffix=_cfg
+
+# suffix of sql configuration file
+batch.sql.config.suffix=_SQL
+
+# allow use of setQuery() in program via item reader, writer
+batch.sql.allow.custom=false
+
+
+#############################################
+# configurations for batch step
+#############################################
+
+# default restartble of step. <step restartable="true/false">
+batch.step.restartable=false
+
+# the number of max threads in parallel step (must greater than 1)
+batch.step.parallel.max=100
+
+# shell commands allowed to execute
+batch.shell.command=copy, move, touch
+
+#############################################
+# configurations for reader/writer
+#############################################
+
+# encoding/decoding error handling (report:throw exception, replace:replaced with space, ignore:ignore)
+batch.charset.overflow=error
+batch.charset.malformed=error
+batch.charset.unmappable=replace
+
+# buffer size for file reader/writer (default:64Kb) 
+batch.file.buffersize=65536
+
+# default file encoding
+batch.file.encoding=euc-kr
+
+# escape special char sequence (default:false) 
+# ex) delimiter(,) line separator(\r\n) escaping char(")
+batch.vsam.escape=false
+
+# when read / write, allow to read null data or not 
+# 	- allow: read/write null data
+#	- replace: replace null data with default field value (@NotNull @DefaultValue)
+#	- system: replace null data with system default value (FieldMeta.properties)
+#	- error: throw exception
+batch.item.null=allow
+
+#allow to create item reader/writer in program
+batch.item.create=true
+
+#############################################
+# configurations for reader
+#############################################
+
+# each input bytes must equal vo length (default:true)
+batch.reader.sam.fixed=true
+
+# trim white space in string while SAM file reading
+batch.reader.sam.trim=true
+
+# trim white space in string while VSAM file reading
+batch.reader.vsam.trim=true
+
+# trim white space in string while DB reading
+batch.reader.db.trim=false
+
+
+#############################################
+# configurations for writer
+#############################################
+
+# delete empty output file when closing (default:false)
+batch.writer.file.delete.empty=true
+
+# delete writing files on error. if batch.job.restart=true, this is must be false
+batch.writer.file.delete.error=false
+
+# delete writing files on stop. if batch.job.restart=true, this is must be false
+batch.writer.file.delete.stop=false
+
+# maximum file size(byte) which is allowed to be wrote (-1: unlimited)
+batch.writer.file.max=-1
+
+# overwrite output file existing. if false and output file exists, exception throw
+batch.writer.file.overwrite=true
+
+# use temp file when writing files
+batch.writer.file.temp=true
+
+# temp file suffix when use temp file 
+batch.writer.file.temp.suffix=._BATCH_TMP_
